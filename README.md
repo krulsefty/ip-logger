@@ -1,2 +1,2 @@
-# simple webhook ip-logger
+# simple webhook ip-logger for any website
 mit license^
