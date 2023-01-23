@@ -1,1 +1,2 @@
-# ip-logger
+# simple webhook ip-logger
+mit license^
